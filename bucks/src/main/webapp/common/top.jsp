@@ -30,7 +30,7 @@
 				<li id="menu" onmouseover="view(0)" onmouseout="hide(0)">
 					<div>펜션소개</div>
 					<ul class="sub">
-						<li>인사말</li>
+						<li></li>
 						<li> 객실소개 </li>
 						<li> 오시는길 </li>
 					</ul>
