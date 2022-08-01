@@ -36,22 +36,9 @@ body, div {
 	margin-right:42px;
 	padding-top:10px;
 }
-#gnb #first #nav-member ul {	
-	margin:0px;
-}
-#gnb #first #nav-member ul li {
-	list-style:none;
-	display:inline-block;
-	text-align:center;
-	width:70px;
-}
-#gnb #first #nav-member ul li a {
-	text-decoration:none;
-	color:#555555;
-}
 #gnb #first #nav-menu {
 	text-align:center;
-	margin-top:32px;
+	/* margin-top:32px; */
 }
 #gnb #first #nav-menu #nav-menu-list {
 	margin:0px;

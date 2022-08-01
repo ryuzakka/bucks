@@ -30,7 +30,10 @@ public class MemberDao {
 		req.setCharacterEncoding("utf-8");
 		String birth, email;
 		birth = req.getParameter("birth1")+"-"+req.getParameter("birth2")+"-"+req.getParameter("birth3");
-		email = req.getParameter("email1")+"@"+req.getParameter("email2");
+		if(req.getParameter("email1").trim() == "")
+			email = "";
+		else
+			email = req.getParameter("email1")+"@"+req.getParameter("email2");
 		
 		String sql = "insert into member";
 		sql += "(userid, pwd, username, nickname, birth, phone, email, writeday) ";
@@ -45,7 +48,7 @@ public class MemberDao {
 		pstmt.setString(6, req.getParameter("phone"));
 		pstmt.setString(7, email);
 		pstmt.executeUpdate();
-		System.out.println(pstmt.toString());
+		//System.out.println(pstmt.toString());
 		
 		close();
 		res.sendRedirect("member_join.jsp");
@@ -70,18 +73,20 @@ public class MemberDao {
 	}
 	
 	public void signin(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
-		String id = req.getParameter("id");
-		String sql = "select * from member where userid=? and pwd=? and state=0 or state=3";
+		String id = req.getParameter("userid");
+		String sql = "select * from member where userid=? and pwd=? and state=0";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, id);
 		pstmt.setString(2, req.getParameter("pwd"));
 		ResultSet rs = pstmt.executeQuery();
+		//System.out.println(pstmt.toString());
 		
 		if(rs.next()) {
-			req.setAttribute("userid", rs.getString("userid"));
-			req.setAttribute("nickname", rs.getString("nickname"));
-			req.setAttribute("star", rs.getInt("star"));
-			req.setAttribute("level", rs.getInt("level"));
+			session.setAttribute("userid", rs.getString("userid"));
+			session.setAttribute("nickname", rs.getString("nickname"));
+			session.setAttribute("star", rs.getInt("star"));
+			session.setAttribute("level", rs.getInt("level"));
+			//System.out.println("userid 세션"+session.getAttribute("userid"));
 			
 			rs.close();
 			close();
@@ -92,6 +97,39 @@ public class MemberDao {
 			res.sendRedirect("login.jsp?err=1");
 		}
 	}
+	
+	public void logout(HttpServletResponse res, HttpSession session) throws Exception {
+		session.invalidate();
+		res.sendRedirect("../main/index.jsp");
+	}
+	
+	public void find_id(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		String sql = "select userid from member where phone=? and state=0";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, req.getParameter("phone"));
+		ResultSet rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			String id = rs.getString("userid");
+			rs.close();
+			close();
+			res.sendRedirect("member_find_id.jsp?userid="+id);
+		} else {
+			rs.close();
+			close();
+			res.sendRedirect("member_find_id.jsp?err=1");
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
