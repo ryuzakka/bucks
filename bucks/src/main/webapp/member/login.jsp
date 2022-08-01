@@ -61,6 +61,10 @@
 		color:#555555;
 		font-size:12px;
 	}
+	#section #loginErr {
+		font-size:13px;
+		color:red;
+	}
 </style>
 <div id="section">
 	
@@ -87,9 +91,12 @@
 			</ul>
 			<p>
 			<input type="submit" value="로 그 인 하 기">
-		</form>
-		
+		</form>		
 	</div>
+	
+	<c:if test="${param.err == 1}">
+		<div id="loginErr">로그인 정보가 일치하지 않습니다.<br>아이디나 비밀번호를 확인 후 다시 입력해 주세요.</div>
+	</c:if>
 	
 	
 </div>

@@ -40,6 +40,8 @@
 						<div>반갑습니다 ${userid}님</div>
 						<ul>
 							<li><a href="../member/member_info.jsp">회원정보</a></li>
+							<li><a href="../member/.jsp">장바구니</a></li>
+							<li><a href="../member/.jsp">나의 주문</a></li>
 							<li><a href="../member/.jsp">나의 리워드</a></li>
 							<li><a href="../member/.jsp">e-Gift</a></li>
 							<li><a href="../member/logout.jsp">로그아웃</a></li>
