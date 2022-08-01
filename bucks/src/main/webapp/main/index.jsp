@@ -2,17 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!-- .jsp -->
-<c:import url="../top.jsp" />
+<!-- 메인 -->
+<c:import url="../common/top.jsp" />
 <style>
 	#section {
 		width:auto;
 		height:auto;
-		margin:80px auto 50px auto;
+		margin-top:85px;
+		padding-bottom:85px;
 		text-align:center;
 	}
 </style>
 <div id="section">
-
+	
 </div>
-<c:import url="../bottom.jsp" />
+<c:import url="../common/footer.jsp" />

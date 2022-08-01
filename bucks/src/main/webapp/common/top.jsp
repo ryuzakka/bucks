@@ -6,88 +6,94 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>**bucks</title>
-<link rel="stylesheet" href="" />
-<script src="" />
+<title>starbucks</title>
+<link rel="stylesheet" href="../common/bucks.css" />
+<!-- <script src="" /> -->
 <script>
 	function view(n) {
-		document.getElementsByClassName('sub')[n].style.visibility = "visible";
+		document.getElementsByClassName('drop-menu-title')[n].style.color = "#669900";
+		document.getElementsByClassName('drop-menu')[n].style.visibility = "visible";
 	}
 	function hide(n) {
-		document.getElementsByClassName('sub')[n].style.visibility = "hidden";
+		document.getElementsByClassName('drop-menu-title')[n].style.color = "#555555";
+		document.getElementsByClassName('drop-menu')[n].style.visibility = "hidden";
 	}
 </script>
 </head>
 <body>
-
-	<div id="first"> <span id="closeBtn"> [ X ] </span></div>
-	<div id="second">
-		<div id="left">
-			<a href="../main/index.jsp">Home</a>
-		</div>
-		<div id="right">
-			<ul>
-				<li id="menu" onmouseover="view(0)" onmouseout="hide(0)">
-					<div>펜션소개</div>
-					<ul class="sub">
-						<li></li>
-						<li> 객실소개 </li>
-						<li> 오시는길 </li>
+<div id="wrap">
+	<div id="gnb">
+		<div id="first">
+			<div id="left">
+				<a href="../main/index.jsp"><img src="../common/img/sb_logo.png" alt="starbucks"></a>
+			</div>
+			<div id="nav-member">
+				<c:if test="${userid == null}">
+					<!-- <div>회원서비스</div> -->
+					<ul>
+						<li><a href="../member/login.jsp">Sign In</a></li>
+						<li><a href="../member/member_input.jsp">Sign Up</a></li>
 					</ul>
-				</li>
-				<li id="menu" onmouseover="view(1)" onmouseout="hide(1)">
-					<div>여행정보</div>
-					<ul class="sub">
-						<li> 주문진 항 </li>
-						<li> 장사해수욕장 </li>
-						<li> 설악산 </li>
-						<li> 정동진 </li>
-					</ul>
-				</li>
-				<li id="menu" onmouseover="view(2)" onmouseout="hide(2)">
-					<div>예약관련</div>
-					<ul class="sub">
-						<li>예약하기</li>
-						<li>예약확인</li>
-					</ul>
-				</li>
-				<li id="menu" onmouseover="view(3)" onmouseout="hide(3)">
-					<div>커뮤니티</div>
-					<ul class="sub">
-						<li>공지사항</li>
-						<li>여행후기</li>
-						<li>자유게시판</li>
-					</ul>
-				</li>
-				
-				<li id="menu" onmouseover="view(4)" onmouseout="hide(4)">
-					<c:if test="${userid == null}">
-						<div>회원서비스</div>
-						<ul class="sub">
-							<li><a href="../member/login.jsp">로그인</a></li>
-							<li><a href="../member/member_input.jsp">회원가입</a></li>
+				</c:if>
+				<c:if test="${userid != null}">
+					<c:if test="${userid != 'admin'}">
+						<div>반갑습니다 ${userid}님</div>
+						<ul>
+							<li><a href="../member/member_info.jsp">회원정보</a></li>
+							<li><a href="../member/.jsp">나의 리워드</a></li>
+							<li><a href="../member/.jsp">e-Gift</a></li>
+							<li><a href="../member/logout.jsp">로그아웃</a></li>
 						</ul>
 					</c:if>
-					<c:if test="${userid != null}">
-						<c:if test="${userid != 'admin'}">
-							<div>${username}님</div>
-							<ul class="sub">
-								<li><a href="../member/member_info.jsp">회원정보</a></li>
-								<li><a href="../member/logout.jsp">로그아웃</a></li>
-							</ul>
-						</c:if>
-						<c:if test="${userid == 'admin'}">
-							<div>펜션 관리</div>
-							<ul class="sub">
-								<li><a href="../manager/reserve.jsp">예약관리</a></li>
-								<li><a href="../manager/room.jsp">객실관리</a></li>
-								<li><a href="../manager/member.jsp">회원관리</a></li>
-								<li><a href="../member/member_info.jsp">관리자 정보</a></li>
-								<li><a href="../member/logout.jsp">로그아웃</a></li>
-							</ul>
-						</c:if>
+					<c:if test="${userid == 'admin'}">
+						<div>관리자모드</div>
+						<ul>
+							<li><a href="../manager/.jsp">주문관리</a></li>
+							<li><a href="../manager/.jsp">e-Gift관리</a></li>
+							<li><a href="../manager/.jsp">회원관리</a></li>
+							<li><a href="../manager/.jsp">공지관리</a></li>
+							<li><a href="../manager/.jsp">신상품관리</a></li>
+							<li><a href="../manager/.jsp">프로모션관리</a></li>
+							<li><a href="../member/logout.jsp">로그아웃</a></li>
+						</ul>
 					</c:if>
-				</li>
-			</ul>
+				</c:if>
+			</div>
+			<div id="nav-menu">
+				
+				<!-- <div id="right"> -->
+					<ul id="nav-menu-list">
+						<li id="top-menu" onmouseover="view(0)" onmouseout="hide(0)">
+							<div class="drop-menu-title">MENU</div>
+							<ul class="drop-menu">
+								<li><a href="">음료</a></li>
+								<li><a href="">푸드</a></li>
+							</ul>
+						</li>
+						<li id="top-menu" onmouseover="view(1)" onmouseout="hide(1)">
+							<div class="drop-menu-title">STORE</div>
+							<ul class="drop-menu">
+								<li><a href="">매장찾기</a></li>
+								<li><a href="">지역검색</a></li>
+							</ul>
+						</li>
+						<li id="top-menu" onmouseover="view(2)" onmouseout="hide(2)">
+							<div class="drop-menu-title">REWARDS</div>
+							<ul class="drop-menu">
+								<li><a href="">리워드 소개</a></li>
+								<li><a href="">e-Gift 소개</a></li>
+							</ul>
+						</li>
+						<li id="top-menu" onmouseover="view(3)" onmouseout="hide(3)">
+							<div class="drop-menu-title">WHAT'S NEW</div>
+							<ul class="drop-menu">
+								<li><a href="">새소식</a></li>
+								<li><a href="">신상품</a></li>
+								<li><a href="">이벤트</a></li>
+							</ul>
+						</li>
+					</ul>
+				<!-- </div> -->
+			</div>
 		</div>
 	</div>
