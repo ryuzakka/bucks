@@ -86,6 +86,10 @@ public class MemberDao {
 			session.setAttribute("nickname", rs.getString("nickname"));
 			session.setAttribute("star", rs.getInt("star"));
 			session.setAttribute("level", rs.getInt("level"));
+			session.setAttribute("prod_name", "");
+			session.setAttribute("size", "");
+			session.setAttribute("unit", "");
+			session.setAttribute("cost", "");
 			//System.out.println("userid 세션"+session.getAttribute("userid"));
 			
 			rs.close();

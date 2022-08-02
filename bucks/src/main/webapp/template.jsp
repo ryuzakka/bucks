@@ -8,7 +8,7 @@
 	#section {
 		width:auto;
 		height:auto;
-		margin:80px auto 50px auto;
+		margin:30px auto 80px auto;
 		text-align:center;
 	}
 </style>

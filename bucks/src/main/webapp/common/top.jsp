@@ -77,7 +77,7 @@
 							<li><a href="../member/.jsp">장바구니</a></li>
 							<li><a href="../member/.jsp">나의 주문</a></li>
 							<li><a href="../member/.jsp">나의 리워드</a></li>
-							<li><a href="../member/.jsp">e-Gift 확인</a></li>
+							<li><a href="../member/.jsp">Gift 확인</a></li>
 							<li><a href="../member/logout.jsp">로그아웃</a></li>
 						</ul>
 					</c:if>
@@ -85,7 +85,7 @@
 						<div>관리자모드</div>
 						<ul id="admin">
 							<li><a href="../manager/.jsp">주문관리</a></li>
-							<li><a href="../manager/.jsp">e-Gift관리</a></li>
+							<li><a href="../manager/.jsp">Gift관리</a></li>
 							<li><a href="../manager/.jsp">회원관리</a></li>
 							<li><a href="../manager/.jsp">새소식관리</a></li>
 							<li><a href="../manager/.jsp">신상품관리</a></li>
@@ -103,7 +103,7 @@
 						<li id="top-menu" onmouseover="view(0)" onmouseout="hide(0)">
 							<div class="drop-menu-title">MENU</div>
 							<ul class="drop-menu">
-								<li><a href="">음료</a></li>
+								<li><a href="../menu/drink_list.jsp">음료</a></li>
 								<li><a href="">푸드</a></li>
 							</ul>
 						</li>
