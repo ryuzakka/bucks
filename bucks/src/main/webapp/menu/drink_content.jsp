@@ -96,7 +96,7 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<p><input type="button" onclick="javascript:location='ordersheet.jsp?name=${param.name}&cate1=${cate1}&cate2=${cate2}'" value="주문하기"></p>
+			<p><input type="button" onclick="javascript:location='../cart/ordersheet.jsp?name=${param.name}'" value="주문하기"></p>
 		</div>
 	</div>
 	

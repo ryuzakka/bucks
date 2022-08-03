@@ -74,7 +74,7 @@
 						<div>반갑습니다 ${userid}님</div>
 						<ul id="user">
 							<li><a href="../member/member_info.jsp">회원정보</a></li>
-							<li><a href="../member/.jsp">장바구니</a></li>
+							<li><a href="../cart/cart_view.jsp">장바구니</a></li>
 							<li><a href="../member/.jsp">나의 주문</a></li>
 							<li><a href="../member/.jsp">나의 리워드</a></li>
 							<li><a href="../member/.jsp">Gift 확인</a></li>

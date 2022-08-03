@@ -2,8 +2,8 @@ package dto;
 
 public class CartDto {
 
-	private int id, state, total_unit, total_cost, store_id;
-	private String userid, prod_code, prod_unit, writeday, prod_size, prod_cost;
+	private int id, state, unit, prod_cost, total_cost, store_id, type, size;
+	private String userid, code, writeday, name, img;
 	
 	
 	public int getId() {
@@ -18,11 +18,17 @@ public class CartDto {
 	public void setState(int state) {
 		this.state = state;
 	}
-	public int getTotal_unit() {
-		return total_unit;
+	public int getUnit() {
+		return unit;
 	}
-	public void setTotal_unit(int total_unit) {
-		this.total_unit = total_unit;
+	public void setUnit(int unit) {
+		this.unit = unit;
+	}
+	public int getProd_cost() {
+		return prod_cost;
+	}
+	public void setProd_cost(int prod_cost) {
+		this.prod_cost = prod_cost;
 	}
 	public int getTotal_cost() {
 		return total_cost;
@@ -42,17 +48,11 @@ public class CartDto {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public String getProd_code() {
-		return prod_code;
+	public String getCode() {
+		return code;
 	}
-	public void setProd_code(String prod_code) {
-		this.prod_code = prod_code;
-	}
-	public String getProd_unit() {
-		return prod_unit;
-	}
-	public void setProd_unit(String prod_unit) {
-		this.prod_unit = prod_unit;
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getWriteday() {
 		return writeday;
@@ -60,17 +60,29 @@ public class CartDto {
 	public void setWriteday(String writeday) {
 		this.writeday = writeday;
 	}
-	public String getProd_size() {
-		return prod_size;
+	public int getType() {
+		return type;
 	}
-	public void setProd_size(String prod_size) {
-		this.prod_size = prod_size;
+	public void setType(int type) {
+		this.type = type;
 	}
-	public String getProd_cost() {
-		return prod_cost;
+	public int getSize() {
+		return size;
 	}
-	public void setProd_cost(String prod_cost) {
-		this.prod_cost = prod_cost;
+	public void setSize(int size) {
+		this.size = size;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
 	}
 	
 }

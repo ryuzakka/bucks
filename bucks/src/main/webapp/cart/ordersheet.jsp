@@ -93,26 +93,6 @@
 		price.value = costPerUnit*cnt;
 		document.getElementById('price').innerText = costPerUnit*cnt;
 	}
-	function placeOrder() {
-		var pname = document.orderSheet.name.value;
-		var size = document.orderSheet.size.value;
-		var unit = document.orderSheet.unit.value;
-		var cost = document.orderSheet.cost.value;
-		
-		var chk = confirm('담으시겠습니까?');
-		if(chk == 1) {
-			var url = "cart.jsp?name="+pname+"&size="+size+"&unit="+unit+"&cost="+cost;
-			var xhr = new XMLHttpRequest();
-			xhr.open("get", url);
-			xhr.send();
-			xhr.onreadystatechange = function() {
-				if(xhr.readyState == 4)
-					console.log(xhr.responseText.trim());
-			}
-		} else {
-			return false;
-		}
-	}
 </script>
 <div id="section">
 	
@@ -126,11 +106,11 @@
 	</div>
 	
 	<div id="container">
-		<form name="orderSheet" method="post" action="cart.jsp">
+		<form name="orderSheet" method="get" action="cart.jsp">
 			<%-- <input type="hidden" name="userid" value="${userid}"> --%>
 			<input type="hidden" name="name" value="${param.name}">
-			<input type="hidden" name="cate1" value="${param.cate1}">
-			<input type="hidden" name="cate2" value="${param.cate2}">
+			<%-- <input type="hidden" name="cate1" value="${param.cate1}"> --%>
+			<%-- <input type="hidden" name="cate2" value="${param.cate2}"> --%>
 			<div id="sizeBtn">
 				<span>사이즈 선택</span>
 				<c:if test="${type ==  1}">
@@ -151,8 +131,7 @@
 				<input type="hidden" name="cost" >
 				<span id="price"></span> 원
 			</div>
-			<input type="submit" value="주문하기">
-			<!-- <input type="button" onclick="placeOrder()" value="담 기"> -->
+			<input type="submit" value="담 기">
 		</form>		
 	</div>
 	
