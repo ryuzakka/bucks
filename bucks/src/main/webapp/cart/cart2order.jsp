@@ -3,5 +3,5 @@
 <%@ page import="dao.CartDao" %>
 <%
 	CartDao dao = new CartDao();
-	dao.insert_order(request, response);
+	dao.insert_order(request, response, session);
 %>

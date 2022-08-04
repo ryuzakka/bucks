@@ -112,7 +112,7 @@ public class CartDao {
 	public void insert_order(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
 		String sql = "";
 		
-//		String[] ids = req.getParameterValues("cartid");
+		String[] ids = req.getParameterValues("cartid");
 		String[] codes = req.getParameterValues("prod_code");
 		String[] units = req.getParameterValues("prod_unit");
 		
@@ -147,14 +147,15 @@ public class CartDao {
 			orderCode += "0001";
 		}
 		// 있다면 가장 큰 값에 +1 설정하기
-		else {			
+		else {
 			Long codeNum = rs.getLong("code") + 1;
 			orderCode = Long.toString(codeNum);
 		}
 			//System.out.println("주문번호 만들기:"+orderCode);
 		
-
+		
 		for(int i=0; i<codes.length; i++) {
+			// 구매 테이블에 구매내역 추가
 			sql = "insert into purchase";
 			sql += "(order_code, userid, prod_code, unit, writeday) ";
 			sql += "values(?,?,?,?,now())";
@@ -164,11 +165,20 @@ public class CartDao {
 			pstmt.setString(3, codes[i]);
 			pstmt.setString(4, units[i]);
 			pstmt.executeUpdate();
+			
+			// 장바구니(cart) 테이블에 상태값 변경
+			sql = "update cart set ";
+			sql += "state=1, orderday=now() ";
+			sql += "where id=? and state=0";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, ids[i]);
+			pstmt.executeUpdate();
 		}
 		
 		rs.close();
 		close();
 		res.sendRedirect("order_view.jsp");
+		
 	}
 	
 	
