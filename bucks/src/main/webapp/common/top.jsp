@@ -20,6 +20,17 @@
 	}
 </script>
 <style>
+	#wrap {
+		width:100%;
+		position:relative;
+		overflow-x:hidden;
+	}
+	#wrap #gnb {
+		width:100%;
+		height:120px;
+		background:#f6f5ef;
+		margin:0;
+	}
 	#gnb #first #nav-member ul {	
 		/* margin:0px; */
 	}

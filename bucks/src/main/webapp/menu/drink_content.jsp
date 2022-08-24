@@ -71,7 +71,7 @@
 	<h2>${category}</h2>
 	<div class="container">
 		<div class="img">
-			<img src="img/${img}" alt="">
+			<img src="img/${param.name}.jpg" alt="">
 		</div>
 		<div class="desc">
 			<div class="menuName">${param.name}</div>

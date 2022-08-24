@@ -99,7 +99,7 @@
 	<h2>주문서 작성</h2>
 	
 	<div id="intro">
-		<div id="menuImg"><img src="img/"></div>
+		<div id="menuImg"><img src="../menu/img/${param.name}.jpg"></div>
 		<div id="menuName">
 			<h3>${param.name}</h3>
 		</div>

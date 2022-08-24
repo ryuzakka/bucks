@@ -18,19 +18,25 @@
 	#section .list {
 		width:900px;
 		margin:auto;
-		border:1px solid green;
+		/* border:1px solid green; */
 		display:flex;
 		flex-flow:row wrap;
-		justify-content:center;
+		justify-content:left;
 	}
 	#section .list .prod {
-		width:300px;
+		width:285px;
 		height:300px;
-		display:inline-block;
+		display:inline-block;	
+		padding:30px 0 30px 13px;
 	}
 	#section .list .prod .img {
 		width:280px;
 		height:280px;
+		/* padding:10px 20px; */
+	}
+	#section .list .prod .img img {
+		width:100%;
+		height:100%;
 	}
 	#section .list .prod .name {
 		width:300px;
@@ -43,16 +49,17 @@
 </style>
 <div id="section">
 	
-<div class="list">
-<c:forEach items="${list}" var="drink">
-	<div class="prod">
-		<a href="drink_content.jsp?name=${drink.name}">
-			<div class="img"><img src="" alt=""></div>
-			<div class="name">${drink.name}</div>
-		</a>
+	<h1>음료</h1>
+	<div class="list">
+	<c:forEach items="${list}" var="drink">
+		<div class="prod">
+			<a href="drink_content.jsp?name=${drink.name}">
+				<div class="img"><img src="img/${drink.name}.jpg"></div>
+				<div class="name">${drink.name}</div>
+			</a>
+		</div>
+	</c:forEach>
 	</div>
-</c:forEach>
-</div>
 	
 </div>
 <c:import url="../common/footer.jsp" />

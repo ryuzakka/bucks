@@ -60,6 +60,7 @@ public class MenuDao {
 		while(rs.next()) {
 			MenuDto dto = new MenuDto();
 			dto.setId(rs.getInt("id"));
+			dto.setName(rs.getString("name"));
 			dto.setType(rs.getInt("type"));
 			dto.setSize(rs.getInt("size"));
 			dto.setPrice(rs.getInt("price"));
